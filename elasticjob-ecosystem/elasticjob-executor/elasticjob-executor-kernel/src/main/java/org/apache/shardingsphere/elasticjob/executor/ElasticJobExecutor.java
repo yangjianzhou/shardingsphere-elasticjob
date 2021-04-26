@@ -74,6 +74,9 @@ public final class ElasticJobExecutor {
      * Execute job.
      */
     public void execute() {
+        /**
+         * 加载任务
+         */
         JobConfiguration jobConfig = jobFacade.loadJobConfiguration(true);
         executorContext.reloadIfNecessary(jobConfig);
         JobErrorHandler jobErrorHandler = executorContext.get(JobErrorHandler.class);
