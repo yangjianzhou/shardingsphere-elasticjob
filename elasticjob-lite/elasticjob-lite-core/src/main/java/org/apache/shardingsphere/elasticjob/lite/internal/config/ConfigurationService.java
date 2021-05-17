@@ -36,6 +36,9 @@ public final class ConfigurationService {
     private final JobNodeStorage jobNodeStorage;
     
     public ConfigurationService(final CoordinatorRegistryCenter regCenter, final String jobName) {
+        /**
+         * 注册的路径
+         */
         jobNodeStorage = new JobNodeStorage(regCenter, jobName);
         timeService = new TimeService();
     }

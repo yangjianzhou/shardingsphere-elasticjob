@@ -72,6 +72,9 @@ public final class SetUpFacade {
      * @param enabled enable job on startup
      */
     public void registerStartUpInfo(final boolean enabled) {
+        /**
+         * 注册节点监听
+         */
         listenerManager.startAllListeners();
         leaderService.electLeader();
         serverService.persistOnline(enabled);

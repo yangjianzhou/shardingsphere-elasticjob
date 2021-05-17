@@ -72,6 +72,9 @@ public class ElasticJobBootstrapConfiguration implements ApplicationContextAware
     
     private void constructJobBootstraps(final ElasticJobProperties elasticJobProperties, final SingletonBeanRegistry singletonBeanRegistry,
                                         final CoordinatorRegistryCenter registryCenter, final TracingConfiguration<?> tracingConfig) {
+        /**
+         * 注册任务
+         */
         for (Map.Entry<String, ElasticJobConfigurationProperties> entry : elasticJobProperties.getJobs().entrySet()) {
             ElasticJobConfigurationProperties jobConfigurationProperties = entry.getValue();
             Preconditions.checkArgument(null != jobConfigurationProperties.getElasticJobClass()

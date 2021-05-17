@@ -81,6 +81,9 @@ public final class JobScheduler {
         Collection<ElasticJobListener> jobListeners = getElasticJobListeners(jobConfig);
         setUpFacade = new SetUpFacade(regCenter, jobConfig.getJobName(), jobListeners);
         String jobClassName = JobClassNameProviderFactory.getProvider().getJobClassName(elasticJob);
+        /**
+         * 注册任务的元数据
+         */
         this.jobConfig = setUpFacade.setUpJobConfiguration(jobClassName, jobConfig);
         schedulerFacade = new SchedulerFacade(regCenter, jobConfig.getJobName());
         jobFacade = new LiteJobFacade(regCenter, jobConfig.getJobName(), jobListeners, findTracingConfiguration().orElse(null));
